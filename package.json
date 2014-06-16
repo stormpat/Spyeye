@@ -1,0 +1,13 @@
+{
+  "name": "Spyeye",
+  "version": "0.1.0",
+  "description": "A small CLI tool for gathering personal info. Used by NSA.",
+  "main": "spyeye.js",
+  "author": "Patrik Storm <storm.patrik@gmail.com> (http://patrikstorm.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^0.6.2",
+    "commander": "^2.2.0",
+    "request": "^2.36.0"
+  }
+}
