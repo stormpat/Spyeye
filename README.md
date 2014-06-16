@@ -3,7 +3,7 @@
 A very tiny program that finds info about a person by their email address. Theres also [Ruby](https://github.com/the4dpatrick/find-any-email),
 [PHP](https://github.com/florianv/snoop) and [Python](https://github.com/jordan-wright/rapportive) ports.
 
-![Demo picture](http://imgur.com/yAVdh2Y)
+![Demo picture](http://i.imgur.com/yAVdh2Y.png)
 
 #### Usage
 
