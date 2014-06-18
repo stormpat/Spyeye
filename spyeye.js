@@ -3,6 +3,7 @@
 var request = require('request');
 var colors = require('colors');
 var program = require('commander');
+var ProgressBar = require('progress');
 var events = require('events');
 var util = require('util');
 var eventEmitter = new events.EventEmitter();
@@ -42,6 +43,7 @@ Spyeye.prototype = {
       console.log("Rate limit exceeded".red);
       return;
     }
+    console.log("\n");
     console.log("------------------------------------------------".green);
     console.log("--------------------RESULTS---------------------".green);
     console.log("------------------------------------------------".green + "\n");
@@ -67,6 +69,7 @@ Spyeye.prototype = {
       console.log(" -username ".cyan + data.contact.memberships[member].username);
       console.log(" -profle ".cyan + data.contact.memberships[member].profile_url);
     };
+    console.log("\n");
   }
 }
 
@@ -78,9 +81,23 @@ program
   .description('Find by email address.')
   .action(function(email, options) {
     console.log("Searching for %s", email);
+
     var spy = new Spyeye(email);
     spy.getToken();
     eventEmitter.on('TOKEN', spy.getData);
+    var bar = new ProgressBar('..Gathering data. (took :elapsed seconds)' , { total: 500 });
+
+    eventEmitter.on('READY', function(value) {
+      bar.complete = value;
+    });
+
+    var timer = setInterval(function () {
+      bar.tick();
+      if (bar.complete) {
+        console.log("\n");
+        clearInterval(timer);
+      }
+    }, 100);
 
 });
 
