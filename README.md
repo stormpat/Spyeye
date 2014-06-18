@@ -3,7 +3,7 @@
 A very tiny program that finds info about a person by their email address. Theres also [Ruby](https://github.com/the4dpatrick/find-any-email),
 [PHP](https://github.com/florianv/snoop) and [Python](https://github.com/jordan-wright/rapportive) ports.
 
-![Demo picture](http://i.imgur.com/yAVdh2Y.png)
+![Demo picture](http://i.imgur.com/xUJYwQJ.png)
 
 #### Usage
 
@@ -20,4 +20,8 @@ Or you can move it to your bin and make it executable.
 #### Notice
 
  The API rate limit is currently set to 50 requests per hour.
+
+#### Licence
+
+ May not be used for evil.
 
