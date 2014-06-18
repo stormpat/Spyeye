@@ -43,16 +43,29 @@ Spyeye.prototype = {
       return;
     }
     console.log("------------------------------------------------".green);
-    console.log("--------------------RESULTS---------------------".green + "\n");
+    console.log("--------------------RESULTS---------------------".green);
+    console.log("------------------------------------------------".green + "\n");
     console.log("Personal info: ".green + "\n");
-    console.log("Full name: ".cyan + data.contact.first_name + " " + data.contact.last_name + " (" + data.contact.headline + ")");
+    console.log("Full name: ".cyan + data.contact.first_name + " " + data.contact.last_name);
     console.log("Nickname: ".cyan + data.contact.friendly_name);
     console.log("Location: ".cyan + data.contact.location);
     console.log("Organisations ".cyan + data.contact.organisation.title);
-    console.log( "\n" + "Images ".green + "\n");
 
-    for (var i = data.contact.images.length - 1; i >= 0; i--) {
-      console.log(data.contact.images[i].service + " - " + data.contact.images[i].url);
+    console.log( "\n" + "Work:".green + "\n");
+    for (var i = data.contact.occupations.length - 1; i >= 0; i--) {
+      console.log(data.contact.occupations[i].job_title + " @ ".cyan + data.contact.occupations[i].company);
+    };
+
+    console.log( "\n" + "Person images ".green + "\n");
+    for (var images = data.contact.images.length - 1; images >= 0; images--) {
+      console.log(data.contact.images[images].service + " - " + data.contact.images[images].url);
+    };
+
+    console.log( "\n" + "Social media ".green + "\n");
+    for (var member = data.contact.memberships.length - 1; member >= 0; member--) {
+      console.log("Member in ".green + data.contact.memberships[member].site_name);
+      console.log(" -username ".cyan + data.contact.memberships[member].username);
+      console.log(" -profle ".cyan + data.contact.memberships[member].profile_url);
     };
   }
 }
